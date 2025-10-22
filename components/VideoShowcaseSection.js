@@ -10,7 +10,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export default function VideoShowcaseSection() {
   const videoRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true); // Changed to true for autoplay
   const [isMuted, setIsMuted] = useState(true);
   const [showControls, setShowControls] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -66,12 +66,20 @@ export default function VideoShowcaseSection() {
       setDuration(video.duration || 0);
     };
 
+    // Handle play/pause state changes
+    const handlePlay = () => setIsPlaying(true);
+    const handlePause = () => setIsPlaying(false);
+
     video.addEventListener('timeupdate', updateProgress);
     video.addEventListener('loadedmetadata', updateDuration);
+    video.addEventListener('play', handlePlay);
+    video.addEventListener('pause', handlePause);
 
     return () => {
       video.removeEventListener('timeupdate', updateProgress);
       video.removeEventListener('loadedmetadata', updateDuration);
+      video.removeEventListener('play', handlePlay);
+      video.removeEventListener('pause', handlePause);
     };
   }, []);
 
@@ -333,10 +341,12 @@ export default function VideoShowcaseSection() {
               onMouseEnter={() => setShowControls(true)}
               onMouseLeave={() => setShowControls(false)}
             >
-              {/* Video Element */}
+              {/* Video Element with Autoplay */}
               <video
                 ref={videoRef}
                 className="w-full aspect-video object-cover cursor-pointer"
+                autoPlay
+                muted
                 loop
                 playsInline
                 poster="/hero-poster.jpg"
@@ -346,7 +356,7 @@ export default function VideoShowcaseSection() {
                 Your browser does not support the video tag.
               </video>
 
-              {/* Play/Pause Overlay */}
+              {/* Play/Pause Overlay - Only shows when paused */}
               <AnimatePresence>
                 {!isPlaying && (
                   <motion.div

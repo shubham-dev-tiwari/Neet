@@ -140,7 +140,7 @@ export default function HeroSection() {
               />
 
               <Sparkles className="w-5 h-5 relative z-10" />
-              <span className="relative z-10"> Join 50,000+ Future Doctors</span>
+              <span className="relative z-10">🎉 Join 50,000+ Future Doctors</span>
 
               {/* Pulse rings */}
               <motion.span
@@ -233,64 +233,50 @@ export default function HeroSection() {
           </motion.p>
 
           {/* Magnetic CTA Buttons */}
-         <motion.div
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, delay: 0.8 }}
-  className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
->
-  <motion.div
-    whileHover={{ y: -5, scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-    className="w-full sm:w-auto"
-  >
-    <MagneticButton
-      size="lg"
-      className="group relative text-white rounded-2xl px-12 py-8 text-lg font-black transition-all duration-300 w-full overflow-hidden"
-      style={{
-        background: 'linear-gradient(90deg, #10B981 0%, #047857 100%)',
-        boxShadow: '0 20px 60px rgba(16, 185, 129, 0.4)',
-      }}
-    >
-      <motion.div
-        className="absolute inset-0"
-        style={{
-          background: 'linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%)',
-        }}
-        animate={{ x: ['-100%', '100%'] }}
-        transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
-      />
-      <span className="relative z-10 flex items-center gap-3">
-        <BookOpen className="w-6 h-6" strokeWidth={2.5} />
-        Start Free Test
-        <motion.div
-          animate={{ x: [0, 5, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-        >
-          <ArrowRight className="w-6 h-6" strokeWidth={2.5} />
-        </motion.div>
-      </span>
-    </MagneticButton>
-  </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
+          >
+            <MagneticButton
+              size="lg"
+              className="group relative text-white rounded-2xl px-12 py-8 text-lg font-black transition-all duration-300 w-full sm:w-auto overflow-hidden"
+              style={{
+                background: 'linear-gradient(90deg, #10B981 0%, #047857 100%)',
+                boxShadow: '0 20px 60px rgba(16, 185, 129, 0.4)',
+              }}
+            >
+              <motion.div
+                className="absolute inset-0"
+                style={{
+                  background: 'linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%)',
+                }}
+                animate={{ x: ['-100%', '100%'] }}
+                transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
+              />
+              <span className="relative z-10 flex items-center gap-3">
+                <BookOpen className="w-6 h-6" strokeWidth={2.5} />
+                Start Free Test
+                <motion.div
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                  <ArrowRight className="w-6 h-6" strokeWidth={2.5} />
+                </motion.div>
+              </span>
+            </MagneticButton>
 
-  <motion.div
-    whileHover={{ y: -5, scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-    className="w-full sm:w-auto"
-  >
-    <MagneticButton
-      size="lg"
-      variant="outline"
-      className="border-2 border-black text-black hover:bg-black hover:text-white rounded-2xl px-12 py-8 text-lg font-black transition-all duration-300 w-full"
-    >
-      <span className="flex items-center gap-3">
-        📺 Watch Demo
-      </span>
-    </MagneticButton>
-  </motion.div>
-</motion.div>
-
-        
+            <MagneticButton
+              size="lg"
+              variant="outline"
+              className="border-2 border-black text-black hover:bg-black hover:text-white rounded-2xl px-12 py-8 text-lg font-black transition-all duration-300 w-full sm:w-auto"
+            >
+              <span className="flex items-center gap-3">
+                 Watch Demo
+              </span>
+            </MagneticButton>
+          </motion.div>
 
           {/* Interactive Stats Cards with Icons */}
           <motion.div
